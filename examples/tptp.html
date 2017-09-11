@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <title>TPTP Example</title>
+    <script type="text/javascript" src="../src/prettify.js"></script>
+    <script type="text/javascript" src="../src/lang-tptp.js"></script>
+    <link rel="stylesheet" href="../css/prettify.css">
+    <style>
+        body {
+            background: black;
+            color: #fff;
+        }
+
+        pre {
+            width: 640px;
+            margin: 1em auto;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body onload="PR.prettyPrint();">
+    <pre class="prettyprint lang-tptp">%--------------------------------------------------------------------------
+% A line begining with a '%' is a comment
+% Domain   : Set Theory
+% Version  : [Urb08] axioms.
+%
+%--------------------------------------------------------------------------
+
+tff(n4_less_n2,conjecture,(
+    $less(-4,-2) )).
+
+fof(fc1_partfun2,axiom,
+    ( v1_xboole_0(k1_xboole_0)
+    &amp; v1_relat_1(k1_xboole_0)
+    &amp; v3_relat_1(k1_xboole_0)
+    &amp; v1_funct_1(k1_xboole_0)
+    &amp; v2_funct_1(k1_xboole_0) )).
+
+fof(t2_partfun2,axiom,(
+    $true )).
+
+fof(t4_partfun2,axiom,(
+    ! [A,B] :
+      ( ~ v1_xboole_0(B)
+     =&gt; ! [C] :
+          ( ~ v1_xboole_0(C)
+         =&gt; ! [D] :
+              ( ( v1_funct_1(D)
+                &amp; m2_relset_1(D,C,B) )
+             =&gt; ( r2_hidden(A,k2_relat_1(D))
+              <=> ? [E] :
+                    ( m1_subset_1(E,C)
+                    &amp; r2_hidden(E,k4_relset_1(C,B,D))
+                    &amp; A = k4_finseq_4(C,B,D,E) ) ) ) ) ) )).
+    </pre>
+</body>
+</html>

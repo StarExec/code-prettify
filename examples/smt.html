@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title>SMT Example</title>
+    <script type="text/javascript" src="../src/prettify.js"></script>
+    <script type="text/javascript" src="../src/lang-smtlib.js"></script>
+    <link rel="stylesheet" href="../css/prettify.css">
+    <style>
+        body {
+            background: black;
+            color: #fff;
+        }
+
+        pre {
+            width: 640px;
+            margin: 1em auto;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body onload="PR.prettyPrint();">
+    <pre class="prettyprint lang-smtlib">(set-logic ALL)
+(set-info :source |
+Simple smt2 benchmark that expects sat.
+|)
+(set-info :comment |
+Symbols can contain quotation marks, but they are part of the symbol and not
+seperate "quotes"
+|)
+(set-info :starexec-expected-result sat)
+(set-option :produce-models true)
+(set-info :smt-lib-version 2.6)
+(set-info :license "https://opensource.org/licenses/MIT")
+(set-info :status unsat)
+(declare-const x Int)
+(declare-fun y () (Set Int))
+(assert (= (insert 1 2 3 4 5 6 7 8 (singleton 9)) y))
+(check-sat)
+(exit)
+    </pre>
+</body>
+</html>
